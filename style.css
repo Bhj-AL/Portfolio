@@ -313,7 +313,7 @@ header div button:nth-of-type(1) svg.lucide {
 }
 
 #DescrTxtSec {
-  width: 100%;
+  width: 100vw;
   height: calc(100vh - 60pt);
   display: flex;
   justify-content: center;
@@ -335,7 +335,7 @@ header div button:nth-of-type(1) svg.lucide {
   color: rgba(255,255,255,0.5);
   text-align: center;
   text-align-last: center;
-  width: 90%;
+  width: 90vw;
 }
 #DescrTxtSec p span.DescrTxt-line {
   display: inline-block;
