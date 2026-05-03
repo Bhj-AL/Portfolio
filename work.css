@@ -1,0 +1,316 @@
+html {
+  height: 100%; 
+}
+body::before {
+  content: "";
+  position: fixed; /* Fixes it to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Pushes it behind your content */
+  
+  /* Your specific gradient */
+  background: linear-gradient(180deg, #0C1348, #152671, #1A2F8F, #3C52B3, #4E60AD);
+  background-size: cover;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Ensure the body itself doesn't have a background color blocking the view */
+  background: transparent; 
+}
+html, body {
+  overscroll-behavior-y: none;
+}
+
+@font-face {
+    font-family: 'SwearBannerDemoMedium';
+    src: url('https://cdn.jsdelivr.net/gh/Bhj-AL/Portfolio@33b7ae3ddf953bcfd6de971e28792168363e5e21/SwearBannerDemo-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SwearDeckDemoThin';
+    src: url('https://cdn.jsdelivr.net/gh/Bhj-AL/Portfolio@cf0d08d35f0984a0268cd1e3a58555836cb5ca3f/SwearDeckDemo-Thin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SwearDeckDemoLight';
+    src: url('https://cdn.jsdelivr.net/gh/Bhj-AL/Portfolio@cf0d08d35f0984a0268cd1e3a58555836cb5ca3f/SwearDeckDemo-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SwearDeckDemoRegular';
+    src: url('https://cdn.jsdelivr.net/gh/Bhj-AL/Portfolio@990cff24af1142521fccb9cfa193fe5638ade514/SwearDeckDemo-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SwearDeckDemoMediumCilati';
+    src: url('https://cdn.jsdelivr.net/gh/Bhj-AL/Portfolio@d99dcf51707904d5f2d8de42b75f395207250ae1/SwearDeckDemo-MediumCilati.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SwearBannerDemoBoldCilati';
+    src: url('https://cdn.jsdelivr.net/gh/Bhj-AL/Portfolio@a302f39d640bece40f27a16a66017603dcc6953f/SwearBannerDemo-BoldCilati.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+#gradHd {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 60pt;
+  background: linear-gradient(180deg, #0C1348, rgba(12, 19, 72, 0));
+}
+header {
+  width: calc(100% - 30pt);
+  height: 26pt;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  display: flex;
+  justify-content: space-between;
+  padding: 15pt;
+  
+}
+header h1 {
+  font-family: Pacifico;
+  font-size: 23pt;
+  font-weight: 500;
+  color: white;
+  margin-top: -6pt;
+}
+header div {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,0.2);
+  width: 75pt;
+  height: 30pt;
+  padding: 3pt;
+  border-radius: 30pt;
+  margin-top: -3pt;
+  backdrop-filter: blur(7px);
+  transition: scale 0.4s cubic-bezier(.18,-0.12,.16,1.69);
+}
+header div:active {
+  scale: 1.1;
+}
+header div button {
+  -webkit-tap-highlight-color: transparent !important;
+  tap-highlight-color: transparent !important;
+  user-select: none;
+  -webkit-user-select: none;
+  border: none;
+  background-color: rgba(0,0,10,0.35);
+  
+  width: 37pt;
+  height: 30pt;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-radius: 30pt;
+}
+header div button svg.lucide {
+  /* Increase for thicker lines, decrease for thinner */
+  stroke-width: 1.8px; 
+  width: 16pt;
+  height: 16pt;
+  color: white;
+}
+header div button:nth-of-type(2) {
+  background-color: white;
+}
+header div button:nth-of-type(1) {
+  background-color: transparent;
+}
+header div button:nth-of-type(2) svg.lucide {
+  color: #152671;
+  stroke-width: 2px;
+}
+
+#title {
+  font-family: Funnel Display;
+  font-weight: 400;
+  font-size: 46pt;
+  letter-spacing: -2pt;
+  text-align: center;
+  color: white;
+  margin-top: 120pt;
+  margin-bottom: 80pt;
+}
+
+.card {
+  width: 255pt;
+  margin-left: calc(50% - 135pt);
+  margin-right: calc(50% - 135pt);
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 25pt;
+  padding: 7.5pt;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.card.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.ui-card-pic-cont {
+  width: 255pt;
+  border-radius: 20pt 20pt 10pt 10pt;
+  background-color: white;
+}
+.ui-card-pic-cont img {
+  width: 255pt;
+  border-radius: 20pt 20pt 10pt 10pt;
+}
+.ui-card-pic-cont:nth-of-type(1) img {
+  width: 225pt;
+  margin: 15pt 15pt 0 15pt;
+  border-radius: 7pt;
+}
+.card h2 {
+  font-family: Funnel Display;
+  font-weight: 400;
+  font-size: 13pt;
+  letter-spacing: -0.8pt;
+  margin-top: 10pt;
+  margin-bottom: 5pt;
+  color: white;
+  text-align: center
+}
+.web-card-pic-cont {
+  width: 255pt;
+  border-radius: 20pt 20pt 10pt 10pt;
+  background-color: black;
+}
+.web-card-pic-cont video {
+  width: 255pt;
+  border-radius: 20pt 20pt 10pt 10pt;
+}
+
+
+
+
+
+
+
+.gradient-blur {
+  position: fixed;
+  z-index: 5;
+  inset: -30pt 0 auto 0;
+  height: 110pt;
+  pointer-events: none;
+}
+.gradient-blur > div,
+.gradient-blur::before,
+.gradient-blur::after {
+  position: absolute;
+  inset: 0;
+}
+.gradient-blur::before {
+  content: "";
+  z-index: 1;
+  backdrop-filter: blur(0.5px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 0) 37.5%
+  );
+}
+.gradient-blur > div:nth-of-type(1) {
+  z-index: 2;
+  backdrop-filter: blur(1px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 12.5%,
+    rgba(0, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+.gradient-blur > div:nth-of-type(2) {
+  z-index: 3;
+  backdrop-filter: blur(2px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 1) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 62.5%
+  );
+}
+.gradient-blur > div:nth-of-type(3) {
+  z-index: 4;
+  backdrop-filter: blur(4px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 37.5%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 0) 75%
+  );
+}
+.gradient-blur > div:nth-of-type(4) {
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 0) 87.5%
+  );
+}
+.gradient-blur > div:nth-of-type(5) {
+  z-index: 6;
+  backdrop-filter: blur(16px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 62.5%,
+    rgba(0, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.gradient-blur > div:nth-of-type(6) {
+  z-index: 7;
+  backdrop-filter: blur(32px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 75%,
+    rgba(0, 0, 0, 1) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.gradient-blur::after {
+  content: "";
+  z-index: 8;
+  backdrop-filter: blur(64px);
+  mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
